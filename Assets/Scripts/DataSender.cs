@@ -5,4 +5,5 @@ using UnityEngine;
 public static class DataSender
 {
     public static string resultMessage;
+    public static string resultTitle;
 }

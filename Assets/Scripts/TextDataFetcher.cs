@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class TextDataFetcher : MonoBehaviour {
 
     public Text resultMessageText;
+    public Text resultTitleText;
 
     // Use this for initialization
     void Start () {
+        resultTitleText.text = DataSender.resultTitle;
         resultMessageText.text = DataSender.resultMessage;
     }
 
