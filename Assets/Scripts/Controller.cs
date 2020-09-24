@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -18,16 +19,37 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (pos.z < 4)
+            if(SceneManager.GetActiveScene().name != "Easy")
             {
-                this.transform.Translate(0f, 0f, 0.1f);
+                if (pos.z < 4)
+                {
+                    this.transform.Translate(0f, 0f, 0.1f);
+                }
+            }
+            else if(SceneManager.GetActiveScene().name == "Easy")
+            {
+                if (pos.z < 3.7)
+                {
+                    this.transform.Translate(0f, 0f, 0.1f);
+                }
             }
         }
+
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (pos.z > -4)
+            if(SceneManager.GetActiveScene().name != "Easy")
             {
-                this.transform.Translate(0f, 0f, -0.1f);
+                if (pos.z > -4)
+                {
+                    this.transform.Translate(0f, 0f, -0.1f);
+                }
+            }
+            else if(SceneManager.GetActiveScene().name == "Easy")
+            {
+                if (pos.z > -3.7)
+                {
+                    this.transform.Translate(0f, 0f, -0.1f);
+                }
             }
         }
     }
