@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class EasyController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,14 +18,14 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (pos.z < 4)
+            if (pos.z < 3.8)
             {
                 this.transform.Translate(0f, 0f, 0.1f);
             }
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (pos.z > -4)
+            if (pos.z > -3.8)
             {
                 this.transform.Translate(0f, 0f, -0.1f);
             }
