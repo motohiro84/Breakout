@@ -5,10 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private SphereCollider bar1;
+    private SphereCollider bar2;
+
     void Start()
     {
-        
+        bar1 = this.gameObject.AddComponent<SphereCollider>();
+        bar2 = this.gameObject.AddComponent<SphereCollider>();
+        bar1.center = new Vector3(0f, 0f, 0.5f);
+        bar2.center = new Vector3(0f, 0f, -0.5f);
+
+        if (Level.mode == 1)
+        {
+            this.transform.localScale = new Vector3(0.4f, 0.6f, 2.5f);
+            bar1.radius = 0.15f;
+            bar2.radius = 0.15f;
+        }
+        else
+        {
+            bar1.radius = 0.25f;
+            bar2.radius = 0.25f;
+        }
     }
 
     // Update is called once per frame
@@ -19,16 +37,16 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if(SceneManager.GetActiveScene().name != "Easy")
+            if(Level.mode == 1)
             {
-                if (pos.z < 4)
+                if (pos.z < 3.7)
                 {
                     this.transform.Translate(0f, 0f, 0.1f);
                 }
             }
-            else if(SceneManager.GetActiveScene().name == "Easy")
+            else
             {
-                if (pos.z < 3.7)
+                if (pos.z < 4)
                 {
                     this.transform.Translate(0f, 0f, 0.1f);
                 }
@@ -37,16 +55,16 @@ public class Controller : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            if(SceneManager.GetActiveScene().name != "Easy")
+            if(Level.mode == 1)
             {
-                if (pos.z > -4)
+                if (pos.z > -3.7)
                 {
                     this.transform.Translate(0f, 0f, -0.1f);
                 }
             }
-            else if(SceneManager.GetActiveScene().name == "Easy")
+            else
             {
-                if (pos.z > -3.7)
+                if (pos.z > -4)
                 {
                     this.transform.Translate(0f, 0f, -0.1f);
                 }
