@@ -5,13 +5,8 @@ using UnityEngine.SceneManagement;
  
 public class GameSystem : MonoBehaviour
 {
-	public void EasyGame() {
-		SceneManager.LoadScene ("Easy");
-	}
-	public void NormalGame() {
-		SceneManager.LoadScene ("Normal");
-	}
-	public void HardGame() {
-		SceneManager.LoadScene ("Hard");
+	public void GameScene(int mode) {
+		Level.mode = mode;
+		SceneManager.LoadScene ("Main");
 	}
 }
