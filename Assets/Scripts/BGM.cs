@@ -14,8 +14,12 @@ public class BGM : MonoBehaviour
         if (Level.mode == 1)
         {
             audioSource.clip = Resources.Load("SoundEffects/easy") as AudioClip;
-            audioSource.Play ();
         }
+        else if (Level.mode == 3)
+        {
+            audioSource.clip = Resources.Load("SoundEffects/Hard") as AudioClip;
+        }
+        audioSource.Play ();
     }
 
     // Update is called once per frame
