@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Destroyer : MonoBehaviour
 {
 
-
+    public GameObject breakEffect;
     public GameObject masterObj;
     [ColorUsage(false, true, 0f, 8f, 0.125f, 3f)]
     public Color coloring;
@@ -32,6 +32,8 @@ public class Destroyer : MonoBehaviour
         {
             masterObj.GetComponent<GameMaster>().boxNum--;
             Destroy(gameObject);
+
+            GenerateEffect();
         }
     }
 
@@ -48,12 +50,22 @@ public class Destroyer : MonoBehaviour
             {
                 masterObj.GetComponent<GameMaster>().boxNum--;
                 Destroy(gameObject);
+
+                GenerateEffect();
             }
         }
         else
         {
             masterObj.GetComponent<GameMaster>().boxNum--;
             Destroy(gameObject);
+
+            GenerateEffect();
         }
+    }
+
+    void GenerateEffect()
+    {
+        GameObject effect = Instantiate(breakEffect) as GameObject;
+        effect.transform.position = gameObject.transform.position;
     }
 }

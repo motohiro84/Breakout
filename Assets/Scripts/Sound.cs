@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using se1;
 
-namespace se1
-{
 public class Sound : MonoBehaviour
 {
     public AudioClip sound01;
@@ -37,5 +34,4 @@ public class Sound : MonoBehaviour
             AudioSource.PlayClipAtPoint(sound02, Camera.main.transform.position);
         }
     }
-}
 }

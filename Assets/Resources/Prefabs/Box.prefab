@@ -106,5 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741af960bb78649f4a4fb93b80290254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakEffect: {fileID: 7137799538534509916, guid: 5073bf2e000a94a62981e251a72b1bb4,
+    type: 3}
   masterObj: {fileID: 0}
   coloring: {r: 2, g: 0, b: 0, a: 0}
