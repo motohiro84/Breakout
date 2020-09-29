@@ -5,12 +5,10 @@ using se1;
 
 namespace se1
 {
-[RequireComponent(typeof(AudioSource))]
 public class Sound : MonoBehaviour
 {
     public AudioClip sound01;
-    AudioSource audioSource;
-    private GameObject Obj;
+    public AudioClip sound02;
     private Sound soundClip;
 
     void Awake()
@@ -18,20 +16,26 @@ public class Sound : MonoBehaviour
 
         if (Level.mode == 3)
         {
-            Obj = Resources.Load("Prefabs/Box", typeof(GameObject)) as GameObject;
-            soundClip = Obj.GetComponent<Sound>();
+            soundClip = GameObject.Find("Ball").GetComponent<Sound>();
             soundClip.sound01 = Resources.Load("SoundEffects/ken") as AudioClip;
         }
     }
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision other)
     {
-        AudioSource.PlayClipAtPoint(sound01, Camera.main.transform.position);
+        if ( other.gameObject.tag == "sound" )
+        {
+            AudioSource.PlayClipAtPoint(sound01, Camera.main.transform.position);
+        }
+        if ( other.gameObject.name == "sitakabe" )
+        {
+            AudioSource.PlayClipAtPoint(sound02, Camera.main.transform.position);
+        }
     }
 }
 }
